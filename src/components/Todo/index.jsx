@@ -1,17 +1,11 @@
 import { useState } from "react";
 
 const Todo = (props) => {
-    const taskCompleted = props.completed;
-
     const [completed, setCompleted] = useState(props.completed);
 
-    const completeHandle = () => {
-        if (completed === false) {
-            setCompleted('');
-        } else {
-            setCompleted('true');
-        }
-    };
+    const handleChange = (e) => {
+        setCompleted(e.target.checked);
+    }
 
     return (
         <li className="todo stack-small">
@@ -19,12 +13,12 @@ const Todo = (props) => {
                 <input
                     id={props.id}
                     type="checkbox"
-                    defaultChecked={taskCompleted}
-                    disabled={taskCompleted}
-                    onChange={completeHandle}
+                    defaultChecked={completed}
+                    disabled={completed}
+                    onChange={handleChange}
                 />
                 <label
-                    className={`todo-label ${taskCompleted ? 'true' : ''}`}
+                    className={`todo-label ${completed ? 'true' : ''}`}
                     htmlFor={props.id}>
                     {props.title}
                 </label>
