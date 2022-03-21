@@ -22,7 +22,6 @@ function App(props) {
     setTasks(remainingTasks);
   }
 
-
   return (
     <div className="App">
       <h1 className='text-center'>TodoApps</h1>

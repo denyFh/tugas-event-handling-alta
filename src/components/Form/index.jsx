@@ -9,7 +9,11 @@ const Form = (props) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        props.addTask(title);
+        if (title === '') {
+            alert("Anda harus mengisi inputan terlebih dahulu sebelum submit")
+        } else {
+            props.addTask(title);
+        }
         setTitle("");
     }
 
